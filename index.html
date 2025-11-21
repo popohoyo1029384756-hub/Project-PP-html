@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project PP</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #0d001a;
+            overflow: hidden;
+            font-family: 'Segoe UI', sans-serif;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bg-animation {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 40, 255, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(180, 60, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(100, 20, 200, 0.2) 0%, transparent 60%);
+            animation: pulse 12s infinite alternate;
+            z-index: 1;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .box {
+            position: relative;
+            z-index: 10;
+            background: rgba(20, 15, 40, 0.92);
+            width: 90%;
+            max-width: 420px;
+            border-radius: 28px;
+            padding: 45px 28px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(138,43,226,0.4);
+            border: 1px solid rgba(138,43,226,0.5);
+            backdrop-filter: blur(16px);
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 900;
+            margin: 0 0 8px 0;
+            background: linear-gradient(90deg, #c47aff, #8a7aff, #d4bbff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(180,100,255,0.6);
+        }
+        .version {
+            font-size: 23px;
+            margin-bottom: 35px;
+            color: white !important;        /* บังคับสีขาว */
+            font-weight: 600;
+            opacity: 1;
+        }
+
+        .code-box {
+            background: rgba(10, 10, 26, 0.95);
+            border: 1px solid #6e1aff;
+            border-radius: 20px;
+            padding: 18px 22px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(110,26,255,0.3);
+        }
+        .code {
+            color: #c47aff;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            white-space: nowrap;
+            overflow-x: auto;
+            text-align: left;
+        }
+        .code::-webkit-scrollbar { height: 8px; }
+        .code::-webkit-scrollbar-thumb {
+            background: linear-gradient(90deg, #9d4edd, #6e1aff);
+            border-radius: 10px;
+        }
+
+        .copy-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(90deg, #8a2be2, #c47aff);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 21px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 12px 35px rgba(138,43,226,0.5);
+            transition: all 0.3s;
+        }
+        .copy-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(157,78,221,0.6);
+        }
+
+        .credit {
+            margin-top: 25px;
+            font-size: 16px;
+            color: white !important;        /* บังคับสีขาว 100% */
+            opacity: 1;
+        }
+        .credit span {
+            color: #e0bbff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-animation"></div>
+
+<div class="box">
+    <h1>Project PP</h1>
+    <div class="version">v0.0.1</div>
+
+    <div class="code-box">
+        <div class="code" id="script">
+loadstring(game:HttpGet("https://raw.githubusercontent.com/popohoyo1029384756-hub/Project-PP-real-102030-by-me-2/refs/heads/main/Project%20PP%20.txt"))()
+        </div>
+    </div>
+
+    <button class="copy-btn" onclick="copyScript()">Copy Code</button>
+
+    <div class="credit">
+        by <span>pun_pun102030</span>
+    </div>
+</div>
+
+<script>
+function copyScript() {
+    const text = document.getElementById("script").textContent;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("คัดลอกแล้วครับพี่");
+    });
+}
+</script>
+
+</body>
+</html>
